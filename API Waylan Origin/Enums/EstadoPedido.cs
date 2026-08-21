@@ -3,8 +3,9 @@
     public enum EstadoPedido
     {
         Pendiente,
-        En_Transito,
-        En_Reparto,
-        Entregado
+        EnPreparacion,  
+        EnTransito,    
+        EnReparto,     
+        Entregado,
     }
 }

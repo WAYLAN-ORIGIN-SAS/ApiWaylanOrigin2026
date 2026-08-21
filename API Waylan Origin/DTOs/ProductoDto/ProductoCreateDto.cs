@@ -12,14 +12,14 @@ namespace API_Waylan_Origin.DTOs.ProductoDto
         [Required(ErrorMessage = "El Id de la categoria es obligatorio")]
         public int IdCategoria { get; set; }
 
-        [Required(ErrorMessage = "El Id de la nota es obligatorio")]
+        
         public List<int> IdNotas {  get; set; } = new List<int>();
 
-        [Required(ErrorMessage = "El proceso obligatorio")]
-        public Proceso proceso { get; set; }
+      
+        public Proceso? proceso { get; set; }
 
-        [Required(ErrorMessage = "El tueste obligatorio")]
-        public Tueste tueste { get; set; } 
+  
+        public Tueste? tueste { get; set; } 
 
         public string? Descripcion { get; set; }
 
