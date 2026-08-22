@@ -15,6 +15,7 @@ namespace API_Waylan_Origin.Data
         public DbSet<Producto> Productos { get; set; }
         public DbSet<Categoria> categorias { get; set; }
         public DbSet<Nota> Notas {  get; set; }
+        public DbSet<CitaSemanal> CitasSemanales { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

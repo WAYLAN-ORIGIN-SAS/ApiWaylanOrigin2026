@@ -35,6 +35,7 @@ namespace API_Waylan_Origin.Controllers
         }
 
         [HttpGet("Lista de productos")]
+        [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<ProductoReadDto>>> ListarProductos()
         {
             var productos = await _productoService.ListarProductos();

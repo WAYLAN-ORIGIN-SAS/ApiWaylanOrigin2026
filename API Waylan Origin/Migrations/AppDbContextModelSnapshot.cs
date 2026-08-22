@@ -45,6 +45,38 @@ namespace API_Waylan_Origin.Migrations
                     b.ToTable("categorias");
                 });
 
+            modelBuilder.Entity("API_Waylan_Origin.Models.CitaSemanal", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Descripcion")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("Fecha")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("HistoriaParrafo1")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("HistoriaParrafo2")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Titulo")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CitasSemanales");
+                });
+
             modelBuilder.Entity("API_Waylan_Origin.Models.DetallePedido", b =>
                 {
                     b.Property<int>("Id")

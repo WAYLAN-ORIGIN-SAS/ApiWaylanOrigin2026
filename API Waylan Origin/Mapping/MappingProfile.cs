@@ -1,5 +1,6 @@
 ﻿using API_Waylan_Origin.Controllers;
 using API_Waylan_Origin.DTOs.CategoriaDto;
+using API_Waylan_Origin.DTOs.CitaSemanal;
 using API_Waylan_Origin.DTOs.NotasDto;
 using API_Waylan_Origin.DTOs.PedidosDto;
 using API_Waylan_Origin.DTOs.ProductoDto;
@@ -60,6 +61,9 @@ namespace API_Waylan_Origin.Mapping
             CreateMap<NotaCreateDto, Nota>();
             CreateMap<NotaUpdateDto, Nota>();
             CreateMap<Nota, NotaReadDto>();
+
+            //CITAS SEMANALES//
+            CreateMap<CitaSemanalUpdateDto, CitaSemanal>();
 
 
         }
