@@ -64,6 +64,7 @@ namespace API_Waylan_Origin.Mapping
 
             //CITAS SEMANALES//
             CreateMap<CitaSemanalUpdateDto, CitaSemanal>();
+            CreateMap<CitaSemanal, CitaSemanalGetDto>();
 
 
         }

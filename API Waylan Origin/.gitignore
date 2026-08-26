@@ -1,5 +1,6 @@
 ﻿
 appsettings.json 
+repomix-output.xml
 bin/
 obj/
 .vs/

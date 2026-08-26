@@ -18,15 +18,15 @@ namespace API_Waylan_Origin.Services.CitasSemanales
             _mapper = mapper;
         }
 
-        public async Task<CitaSemanal> GetCita()
+        public async Task<CitaSemanalGetDto> GetCita()
         {
             var cita = await _appDbContext.CitasSemanales.FirstOrDefaultAsync();
 
             if (cita == null)
-                 return new CitaSemanal();
+                 return new CitaSemanalGetDto();
 
 
-            return cita;
+            return _mapper.Map<CitaSemanalGetDto>(cita);
         }
 
         public async Task<bool> UpdateCita(CitaSemanalUpdateDto citaSemanalUpdateDto)

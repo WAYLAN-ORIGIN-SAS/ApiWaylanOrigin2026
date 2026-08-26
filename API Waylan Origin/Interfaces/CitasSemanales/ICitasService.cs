@@ -5,7 +5,7 @@ namespace API_Waylan_Origin.Interfaces.CitasSemanales
 {
     public interface ICitasService
     {
-        Task<CitaSemanal> GetCita();
+        Task<CitaSemanalGetDto> GetCita();
 
         Task<bool> UpdateCita(CitaSemanalUpdateDto citaSemanalUpdateDto);
     }
