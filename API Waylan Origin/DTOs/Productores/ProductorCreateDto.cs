@@ -29,6 +29,6 @@ namespace API_Waylan_Origin.DTOs.Productores
         [Required(ErrorMessage = "La descripcion de sostenibilidad es obligatorio.")]
         public string SostenibilidadDescripcion { get; set; } = string.Empty;
 
-        public ICollection<Procedimiento> Procedimientos { get; set; } = new List<Procedimiento>();
+ 
     }
 }

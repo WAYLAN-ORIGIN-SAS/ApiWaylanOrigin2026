@@ -42,7 +42,7 @@ namespace API_Waylan_Origin.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("categorias", (string)null);
+                    b.ToTable("categorias");
                 });
 
             modelBuilder.Entity("API_Waylan_Origin.Models.CitaSemanal", b =>
@@ -191,7 +191,7 @@ namespace API_Waylan_Origin.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("CitasSemanales", (string)null);
+                    b.ToTable("CitasSemanales");
                 });
 
             modelBuilder.Entity("API_Waylan_Origin.Models.DetallePedido", b =>
@@ -220,7 +220,7 @@ namespace API_Waylan_Origin.Migrations
 
                     b.HasIndex("IdProducto");
 
-                    b.ToTable("DetallesPedido", (string)null);
+                    b.ToTable("DetallesPedido");
                 });
 
             modelBuilder.Entity("API_Waylan_Origin.Models.Nota", b =>
@@ -237,7 +237,44 @@ namespace API_Waylan_Origin.Migrations
 
                     b.HasKey("id");
 
-                    b.ToTable("Notas", (string)null);
+                    b.ToTable("Notas");
+                });
+
+            modelBuilder.Entity("API_Waylan_Origin.Models.Organizacion", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Descripcion1")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Descripcion2")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Enfoque")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("ImagenHero")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("ImagenLogo")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Organizaciones");
                 });
 
             modelBuilder.Entity("API_Waylan_Origin.Models.Pedido", b =>
@@ -283,7 +320,41 @@ namespace API_Waylan_Origin.Migrations
 
                     b.HasIndex("IdUsuario");
 
-                    b.ToTable("pedidos", (string)null);
+                    b.ToTable("pedidos");
+                });
+
+            modelBuilder.Entity("API_Waylan_Origin.Models.Procedimiento", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Descripcion")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("IdProductor")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Imagen")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Titulo")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdProductor");
+
+                    b.ToTable("Procedimientos");
                 });
 
             modelBuilder.Entity("API_Waylan_Origin.Models.Producto", b =>
@@ -329,7 +400,52 @@ namespace API_Waylan_Origin.Migrations
 
                     b.HasIndex("IdCategoria");
 
-                    b.ToTable("Productos", (string)null);
+                    b.ToTable("Productos");
+                });
+
+            modelBuilder.Entity("API_Waylan_Origin.Models.Productor", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("Destacado")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<string>("Frase")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("HistoriaTexto")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("HistoriaTitulo")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("IdOrganizacion")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ImagenPrincipal")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("SostenibilidadDescripcion")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdOrganizacion");
+
+                    b.ToTable("Productores");
                 });
 
             modelBuilder.Entity("API_Waylan_Origin.Models.Rol", b =>
@@ -346,7 +462,7 @@ namespace API_Waylan_Origin.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Roles", (string)null);
+                    b.ToTable("Roles");
                 });
 
             modelBuilder.Entity("API_Waylan_Origin.Models.Usuario", b =>
@@ -391,7 +507,7 @@ namespace API_Waylan_Origin.Migrations
 
                     b.HasIndex("IdRol");
 
-                    b.ToTable("Usuarios", (string)null);
+                    b.ToTable("Usuarios");
                 });
 
             modelBuilder.Entity("NotaProducto", b =>
@@ -439,6 +555,17 @@ namespace API_Waylan_Origin.Migrations
                     b.Navigation("Usuario");
                 });
 
+            modelBuilder.Entity("API_Waylan_Origin.Models.Procedimiento", b =>
+                {
+                    b.HasOne("API_Waylan_Origin.Models.Productor", "Productor")
+                        .WithMany("Procedimientos")
+                        .HasForeignKey("IdProductor")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Productor");
+                });
+
             modelBuilder.Entity("API_Waylan_Origin.Models.Producto", b =>
                 {
                     b.HasOne("API_Waylan_Origin.Models.Categoria", "Categoria")
@@ -448,6 +575,17 @@ namespace API_Waylan_Origin.Migrations
                         .IsRequired();
 
                     b.Navigation("Categoria");
+                });
+
+            modelBuilder.Entity("API_Waylan_Origin.Models.Productor", b =>
+                {
+                    b.HasOne("API_Waylan_Origin.Models.Organizacion", "Organizacion")
+                        .WithMany("productores")
+                        .HasForeignKey("IdOrganizacion")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Organizacion");
                 });
 
             modelBuilder.Entity("API_Waylan_Origin.Models.Usuario", b =>
@@ -481,6 +619,11 @@ namespace API_Waylan_Origin.Migrations
                     b.Navigation("Productos");
                 });
 
+            modelBuilder.Entity("API_Waylan_Origin.Models.Organizacion", b =>
+                {
+                    b.Navigation("productores");
+                });
+
             modelBuilder.Entity("API_Waylan_Origin.Models.Pedido", b =>
                 {
                     b.Navigation("DetallesPedido");
@@ -489,6 +632,11 @@ namespace API_Waylan_Origin.Migrations
             modelBuilder.Entity("API_Waylan_Origin.Models.Producto", b =>
                 {
                     b.Navigation("DetallesPedido");
+                });
+
+            modelBuilder.Entity("API_Waylan_Origin.Models.Productor", b =>
+                {
+                    b.Navigation("Procedimientos");
                 });
 
             modelBuilder.Entity("API_Waylan_Origin.Models.Rol", b =>

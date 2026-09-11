@@ -5,6 +5,7 @@ using API_Waylan_Origin.Interfaces.CitasSemanales;
 using API_Waylan_Origin.Interfaces.Notas;
 using API_Waylan_Origin.Interfaces.Pedidos;
 using API_Waylan_Origin.Interfaces.Producto;
+using API_Waylan_Origin.Interfaces.Productores;
 using API_Waylan_Origin.Interfaces.Usuarios;
 using API_Waylan_Origin.Interfaces.Wompi;
 using API_Waylan_Origin.Mapping;
@@ -14,6 +15,7 @@ using API_Waylan_Origin.Services.Categorias;
 using API_Waylan_Origin.Services.CitasSemanales;
 using API_Waylan_Origin.Services.Notas;
 using API_Waylan_Origin.Services.Pedidos;
+using API_Waylan_Origin.Services.Productores;
 using API_Waylan_Origin.Services.Productos;
 using API_Waylan_Origin.Services.Usuarios;
 using API_Waylan_Origin.Services.Wompi;
@@ -81,6 +83,8 @@ builder.Services.AddScoped<IPedidoService, PedidoService>();
 builder.Services.AddScoped<INotaService, NotaService>();
 builder.Services.AddScoped<IPagosService, PagosService>();
 builder.Services.AddScoped<ICitasService, CitasServices>();
+builder.Services.AddScoped<IOrganizacionesService, OrganizacionesService>();
+builder.Services.AddScoped<IProductoresServices, ProductoresServices>();
 
 // --------------------------------
 // 4. Registro de AutoMapper

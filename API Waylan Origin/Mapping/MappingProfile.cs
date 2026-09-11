@@ -4,6 +4,7 @@ using API_Waylan_Origin.DTOs.CitaSemanal;
 using API_Waylan_Origin.DTOs.NotasDto;
 using API_Waylan_Origin.DTOs.PedidosDto;
 using API_Waylan_Origin.DTOs.ProductoDto;
+using API_Waylan_Origin.DTOs.Productores;
 using API_Waylan_Origin.DTOs.UsuarioDto;
 using API_Waylan_Origin.Models;
 using AutoMapper;
@@ -66,6 +67,14 @@ namespace API_Waylan_Origin.Mapping
             CreateMap<CitaSemanalUpdateDto, CitaSemanal>();
             CreateMap<CitaSemanal, CitaSemanalGetDto>();
 
+            //ORGANIZACIONES
+            CreateMap<Organizacion, OrganizacionReadDto>();
+            CreateMap<OrganizacionUpdateDto, Organizacion>();
+
+            //PRODUCTORES
+            CreateMap<Productor, ProductorReadDto>();
+            CreateMap<ProductorCreateDto, Productor>();
+            CreateMap<ProductorUpdateDto, Productor>();
 
         }
     }
