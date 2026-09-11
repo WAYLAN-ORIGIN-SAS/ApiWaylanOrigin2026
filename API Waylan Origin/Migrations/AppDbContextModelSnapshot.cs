@@ -42,7 +42,7 @@ namespace API_Waylan_Origin.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("categorias");
+                    b.ToTable("categorias", (string)null);
                 });
 
             modelBuilder.Entity("API_Waylan_Origin.Models.CitaSemanal", b =>
@@ -53,12 +53,25 @@ namespace API_Waylan_Origin.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("CalloutTexto")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("CalloutTitulo")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.Property<string>("Descripcion")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<DateTime>("Fecha")
-                        .HasColumnType("datetime(6)");
+                    b.Property<string>("Fecha")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("HeroImageUrl")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.Property<string>("HistoriaParrafo1")
                         .IsRequired()
@@ -68,13 +81,117 @@ namespace API_Waylan_Origin.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<string>("HistoriaTitulo")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("OptCard1ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("OptCard1Texto")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("OptCard1Titulo")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("OptCard2ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("OptCard2Texto")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("OptCard2Titulo")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("ProcesoEtapa1Texto")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("ProcesoEtapa1Titulo")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("ProcesoEtapa2Texto")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("ProcesoEtapa2Titulo")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("ProcesoEtapa3Texto")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("ProcesoEtapa3Titulo")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("ProcesoEtapa4Texto")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("ProcesoEtapa4Titulo")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("ProcesoEtapa5Texto")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("ProcesoEtapa5Titulo")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Razon1Texto")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Razon1Titulo")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Razon2Texto")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Razon2Titulo")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Razon3Texto")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Razon3Titulo")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("RazonesTitulo")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Testimonio")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.Property<string>("Titulo")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Ubicacion")
                         .IsRequired()
                         .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
-                    b.ToTable("CitasSemanales");
+                    b.ToTable("CitasSemanales", (string)null);
                 });
 
             modelBuilder.Entity("API_Waylan_Origin.Models.DetallePedido", b =>
@@ -103,7 +220,7 @@ namespace API_Waylan_Origin.Migrations
 
                     b.HasIndex("IdProducto");
 
-                    b.ToTable("DetallesPedido");
+                    b.ToTable("DetallesPedido", (string)null);
                 });
 
             modelBuilder.Entity("API_Waylan_Origin.Models.Nota", b =>
@@ -120,7 +237,7 @@ namespace API_Waylan_Origin.Migrations
 
                     b.HasKey("id");
 
-                    b.ToTable("Notas");
+                    b.ToTable("Notas", (string)null);
                 });
 
             modelBuilder.Entity("API_Waylan_Origin.Models.Pedido", b =>
@@ -166,7 +283,7 @@ namespace API_Waylan_Origin.Migrations
 
                     b.HasIndex("IdUsuario");
 
-                    b.ToTable("pedidos");
+                    b.ToTable("pedidos", (string)null);
                 });
 
             modelBuilder.Entity("API_Waylan_Origin.Models.Producto", b =>
@@ -212,7 +329,7 @@ namespace API_Waylan_Origin.Migrations
 
                     b.HasIndex("IdCategoria");
 
-                    b.ToTable("Productos");
+                    b.ToTable("Productos", (string)null);
                 });
 
             modelBuilder.Entity("API_Waylan_Origin.Models.Rol", b =>
@@ -229,7 +346,7 @@ namespace API_Waylan_Origin.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Roles");
+                    b.ToTable("Roles", (string)null);
                 });
 
             modelBuilder.Entity("API_Waylan_Origin.Models.Usuario", b =>
@@ -274,7 +391,7 @@ namespace API_Waylan_Origin.Migrations
 
                     b.HasIndex("IdRol");
 
-                    b.ToTable("Usuarios");
+                    b.ToTable("Usuarios", (string)null);
                 });
 
             modelBuilder.Entity("NotaProducto", b =>

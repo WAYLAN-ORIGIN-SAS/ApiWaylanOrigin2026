@@ -16,6 +16,9 @@ namespace API_Waylan_Origin.Data
         public DbSet<Categoria> categorias { get; set; }
         public DbSet<Nota> Notas {  get; set; }
         public DbSet<CitaSemanal> CitasSemanales { get; set; }
+        public DbSet<Organizacion> Organizaciones { get; set; }
+        public DbSet<Productor> Productores {  get; set; }
+        public DbSet<Procedimiento> Procedimientos { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -46,13 +49,13 @@ namespace API_Waylan_Origin.Data
             //Relacion Usuario --> Pedido
             modelBuilder.Entity<Usuario>()
                 .HasMany(u => u.Pedidos)
-                .WithOne(p =>  p.Usuario)
+                .WithOne(p => p.Usuario)
                 .HasForeignKey(p => p.IdUsuario);
 
             //Relacion Pedido --> DetallePedido
             modelBuilder.Entity<Pedido>()
                 .HasMany(p => p.DetallesPedido)
-                .WithOne(d =>  d.Pedido)
+                .WithOne(d => d.Pedido)
                 .HasForeignKey(d => d.IdPedido);
 
             //Relacion Producto --> DetallePedido
@@ -72,6 +75,20 @@ namespace API_Waylan_Origin.Data
                 .HasMany(p => p.Notas)
                 .WithMany(n => n.Productos)
                 .UsingEntity(m => m.ToTable("ProductoNotas"));
+
+            //Relacion Organizacion --> Productores
+            modelBuilder.Entity<Organizacion>()
+                .HasMany(o => o.productores)
+                .WithOne(p => p.Organizacion)
+                .HasForeignKey(p => p.IdOrganizacion);
+
+            //Relacion Productor --> Procedimiento
+            modelBuilder.Entity<Productor>()
+                .HasMany(pr => pr.Procedimientos)
+                .WithOne(p => p.Productor)
+                .HasForeignKey(p => p.IdProductor);
+
+
                 
         }
 
