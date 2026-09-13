@@ -68,7 +68,8 @@ namespace API_Waylan_Origin.Mapping
             CreateMap<CitaSemanal, CitaSemanalGetDto>();
 
             //ORGANIZACIONES
-            CreateMap<Organizacion, OrganizacionReadDto>();
+            CreateMap<Organizacion, OrganizacionReadDto>()
+                .ForMember(dest => dest.productoresDestacados, opt => opt.MapFrom(src => src.productores));
             CreateMap<OrganizacionUpdateDto, Organizacion>();
 
             //PRODUCTORES
