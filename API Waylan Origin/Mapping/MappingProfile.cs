@@ -73,9 +73,15 @@ namespace API_Waylan_Origin.Mapping
             CreateMap<OrganizacionUpdateDto, Organizacion>();
 
             //PRODUCTORES
-            CreateMap<Productor, ProductorReadDto>();
+            CreateMap<Productor, ProductorReadDto>()
+                .ForMember(dest => dest.Procedimientos, opt => opt.MapFrom(src => src.Procedimientos));
             CreateMap<ProductorCreateDto, Productor>();
             CreateMap<ProductorUpdateDto, Productor>();
+
+            //PROCEDIMIENTOS
+            CreateMap<Procedimiento, ProcedimientoReadDto>();
+            CreateMap<ProcedimientoCreateDto, Procedimiento>();
+            CreateMap<ProcedimientoUpdateDto, Procedimiento>();
 
         }
     }

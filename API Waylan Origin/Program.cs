@@ -20,6 +20,7 @@ using API_Waylan_Origin.Services.Productos;
 using API_Waylan_Origin.Services.Usuarios;
 using API_Waylan_Origin.Services.Wompi;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Components.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -85,6 +86,7 @@ builder.Services.AddScoped<IPagosService, PagosService>();
 builder.Services.AddScoped<ICitasService, CitasServices>();
 builder.Services.AddScoped<IOrganizacionesService, OrganizacionesService>();
 builder.Services.AddScoped<IProductoresServices, ProductoresServices>();
+builder.Services.AddScoped<IProcedimientoService, ProcedimientoService>();
 
 // --------------------------------
 // 4. Registro de AutoMapper

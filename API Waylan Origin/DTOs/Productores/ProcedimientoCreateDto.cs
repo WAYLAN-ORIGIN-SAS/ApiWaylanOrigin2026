@@ -16,7 +16,7 @@ namespace API_Waylan_Origin.DTOs.Productores
         [Required(ErrorMessage = "La Descripcion es obligatoria.")]
         public string Descripcion { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "La Imagen es obligatoria.")]
+        
         public IFormFile? Imagen { get; set; } 
     }
 }
