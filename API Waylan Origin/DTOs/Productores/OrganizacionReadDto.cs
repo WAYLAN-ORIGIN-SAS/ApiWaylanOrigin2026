@@ -4,6 +4,7 @@ namespace API_Waylan_Origin.DTOs.Productores
 {
     public class OrganizacionReadDto
     {
+        public int Id { get; set; }
         public string Nombre { get; set; } = string.Empty;
         public string ImagenLogo { get; set; } = string.Empty;
         public string ImagenHero { get; set; } = string.Empty;

@@ -2,6 +2,7 @@
 {
     public class ProcedimientoReadDto
     {
+        public int Id { get; set; }
         public string Nombre { get; set; } = string.Empty;
         public string ProductorNombre { get; set; } = string.Empty;
         public string Titulo { get; set; } = string.Empty;

@@ -14,7 +14,6 @@ namespace API_Waylan_Origin.DTOs.Productores
         [Required(ErrorMessage = "El destacado es obligatorio.")]
         public bool Destacado { get; set; }
 
-        [Required(ErrorMessage = "La imagen es obligatorio.")]
         public IFormFile? ImagenPrincipal { get; set; }
 
         [Required(ErrorMessage = "La frase es obligatoria.")]

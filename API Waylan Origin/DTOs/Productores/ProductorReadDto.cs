@@ -4,6 +4,7 @@ namespace API_Waylan_Origin.DTOs.Productores
 {
     public class ProductorReadDto
     {
+        public int Id { get; set; }
         public string Nombre { get; set; } = string.Empty;
         public string OrganizacionNombre { get; set; } = string.Empty;
         public bool Destacado { get; set; }

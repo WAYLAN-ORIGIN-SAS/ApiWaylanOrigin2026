@@ -67,6 +67,7 @@ namespace API_Waylan_Origin.Services.Productores
             return _mapper.Map<ProductorReadDto>(nuevoProductor);
         }
         
+       
         public async Task<IEnumerable<ProductorReadDto>> ListarProductores()
         {
             var productores = await _appDbContext.Productores
